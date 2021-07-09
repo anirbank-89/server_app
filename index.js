@@ -17,11 +17,13 @@ db.once('open', ()=>{
 
 const port = 3000
 
-app.set('view engine','ejs')
-
-app.use(express.static('public'))
-
 app.use('/',homeRoute)
+
+// MIDDLEWARE SETUP
+//VIEW ENGINE SETUP
+app.set('view engine','ejs')
+// STATIC FOLDER SETUP
+app.use(express.static('public'))
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
