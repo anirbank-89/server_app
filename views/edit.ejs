@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/semantic.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="ui massive menu"></div>
+        <br><br><br>
+        <div class="ui container">
+            <form action="/edit/<%- club._id %>" class="ui form" method="POST">
+                <div class="ui three fields">
+                    <div class="field">
+                        <label for="name" class="ui header green">Enter the club name</label>
+                        <input type="text" name="name" id="name" value="<%- club.name %>">
+                    </div>
+                    <div class="field">
+                        <label for="players" class="ui header green">Enter the player names</label>
+                        <input type="text" name="players" id="players" value="<%- club.players %>">
+                    </div>
+                    <div class="field">
+                        <label for="coach" class="ui header green">Enter the coach name</label>
+                        <input type="text" name="coach" id="coach" value="<%- club.coach %>">
+                    </div>
+                </div>
+                <div class="ui fluid field">
+                    <input type="submit" class="ui button green" value="Submit">
+                </div>
+            </form>
+            <br><br>
+            
+        </div>
+    </div>
+</body>
+</html>

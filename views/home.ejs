@@ -17,15 +17,15 @@
                 <div class="ui three fields">
                     <div class="field">
                         <label for="name" class="ui header green">Enter the club name</label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" id="name">
                     </div>
                     <div class="field">
-                        <label for="players" class="ui header green">Enter the club name</label>
-                        <input type="text" name="players">
+                        <label for="players" class="ui header green">Enter the player names</label>
+                        <input type="text" name="players" id="players">
                     </div>
                     <div class="field">
-                        <label for="coach" class="ui header green">Enter the club name</label>
-                        <input type="text" name="coach">
+                        <label for="coach" class="ui header green">Enter the coach name</label>
+                        <input type="text" name="coach" id="coach">
                     </div>
                 </div>
                 <div class="ui fluid field">
@@ -35,16 +35,30 @@
             <br><br>
             <table class="ui green table">
                 <thead>
-                    <th>
-                        Club name
-                    </th>
+                    <th>Club name</th>
                     <th>Players</th>
                     <th>Coach</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </thead>
                 <tbody>
-                    <td>FC Barcelona</td>
-                    <td>Messi, Suarez, Iniesta</td>
-                    <td>Valverde</td>
+                    <tr>
+                        <td>FC Barcelona</td>
+                        <td>Messi, Suarez, Iniesta</td>
+                        <td>Valverde</td>
+                        <td><a class="ui purple button"><i class="edit outline icon"></i></a></td>
+                        <td><a class="ui red button"><i class="minus icon"></i></a></td>
+                    </tr>
+
+                    <% clubs.forEach((club)=>{ %>
+                        <tr>
+                            <td><%- club.name; %></td>
+                            <td><%- club.players; %></td>
+                            <td><%- club.coach; %></td>
+                            <td><a href="/edit/<%= club._id %>" > class="ui purple button"><i class="edit outline icon"></i></a></td>
+                        <td><a class="ui red button" href="/delete/<%= club._id %>"><i class="minus icon"></i></a></td>
+                        </tr>
+                      <% }); %>
                 </tbody>
             </table>
         </div>
